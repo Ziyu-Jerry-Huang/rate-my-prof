@@ -1,29 +1,60 @@
+-- (1) Campus Table
+
+DROP TABLE IF EXISTS campus;
 CREATE TABLE campus (
-    Campus_id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(255) NOT NULL
+    campus_id        INT              NOT NULL AUTO_INCREMENT,
+    campus_name      VARCHAR(255)     NOT NULL,
+    PRIMARY KEY(campus_id)
 );
 
+-- Initialize campus table
+INSERT INTO campus (campus_name)
+VALUES
+    ('Online'),
+    ('Boston'),
+    ('Silicon-Valley'),
+    ('Seattle'),
+    ('Oakland'),
+    ('Vancouver'),
+    ('Arlington'),
+    ('Portland'),
+    ('London'),
+    ('Burlington'),
+    ('Charlotte'),
+    ('Miami'),
+    ('Nahant'),
+    ('Toronto');
+
+-- (2) Professors Table
+
+DROP TABLE IF EXISTS professors;
 CREATE TABLE professors (
-    professor_id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(255) NOT NULL,
-    Campus_id INT,
-    FOREIGN KEY (Campus_id) REFERENCES Campus(Campus_id)
+    professor_id      INT               NOT NULL AUTO_INCREMENT ,
+    name              VARCHAR(255)      NOT NULL,
+    campus_id         INT,
+    PRIMARY KEY(professor_id)
 );
 
+-- (3) Reviews Table
+
+DROP TABLE IF EXISTS reviews;
 CREATE TABLE reviews (
-    review_id INT AUTO_INCREMENT PRIMARY KEY,
-    course_id INT,
-    professor_id INT,
-    rating INT NOT NULL,
-    comment TEXT,
-    date_posted TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (professor_id) REFERENCES Professors(professor_id)
+    review_id         INT               NOT NULL AUTO_INCREMENT,
+    course_id         INT               NOT NULL,
+    rating            INT               NOT NULL,
+    comment           TEXT              NOT NULL,
+    date_posted       DATETIME,
+    PRIMARY KEY(review_id)
 );
 
+-- (4) Courses Table
+
+DROP TABLE IF EXISTS courses;
 CREATE TABLE courses(
-    course_id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(255) NOT NULL,
-    course_code VARCHAR(255) NOT NULL,
-    professor_id INT,
-    FOREIGN KEY (professor_id) REFERENCES Professors(professor_id)
+    course_id         INT                NOT NULL AUTO_INCREMENT,
+    course_name       VARCHAR(255)       NOT NULL,
+    course_code       VARCHAR(255)       NOT NULL,
+    professor_id      INT                NOT NULL,
+    campus_id         INT                NOT NULL,
+    PRIMARY KEY(course_id)
 );

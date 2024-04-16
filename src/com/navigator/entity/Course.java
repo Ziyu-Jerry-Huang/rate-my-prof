@@ -2,13 +2,13 @@ package com.navigator.entity;
 
 public class Course {
     private Integer courseId;
-    private String name;
+    private String courseName;
     private String courseCode;
     private Integer professorId;
 
-    public Course(Integer courseId, String name, String courseCode, Integer professorId) {
+    public Course(Integer courseId, String courseName, String courseCode, Integer professorId) {
         this.courseId = courseId;
-        this.name = name;
+        this.courseName = courseName;
         this.courseCode = courseCode;
         this.professorId = professorId;
     }
@@ -21,12 +21,12 @@ public class Course {
         this.courseId = courseId;
     }
 
-    public String getName() {
-        return name;
+    public String getCourseName() {
+        return courseName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setCourseName(String courseName) {
+        this.courseName = courseName;
     }
 
     public String getCourseCode() {
