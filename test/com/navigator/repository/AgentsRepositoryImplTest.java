@@ -1,13 +1,8 @@
 package com.navigator.repository;
 
-import static org.junit.Assert.*;
-
-import com.navigator.entity.Agent;
-import com.navigator.entity.Category;
-import com.navigator.repository.AgentRepository;
 import com.navigator.repository.Impl.AgentsRepositoryImpl;
 import java.util.List;
-import org.junit.Before;
+
 import org.junit.Test;
 
 public class AgentsRepositoryImplTest {

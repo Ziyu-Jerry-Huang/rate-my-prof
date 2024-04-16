@@ -1,12 +1,8 @@
 package com.navigator.service.Impl;
 
-import com.navigator.entity.Agent;
-import com.navigator.entity.Category;
-import com.navigator.repository.AgentRepository;
-import com.navigator.repository.CategoriesRepository;
 import com.navigator.repository.Impl.AgentsRepositoryImpl;
 import com.navigator.repository.Impl.CategoriesRepositoryImpl;
-import com.navigator.service.HomepageService;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;

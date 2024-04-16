@@ -1,8 +1,5 @@
 package com.navigator.repository.Impl;
 
-import com.navigator.entity.Agent;
-import com.navigator.entity.Category;
-import com.navigator.repository.AgentRepository;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
