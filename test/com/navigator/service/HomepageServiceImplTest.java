@@ -1,9 +1,5 @@
 package com.navigator.service;
 
-import static org.junit.Assert.*;
-
-import com.navigator.entity.Agent;
-import com.navigator.entity.Category;
 import com.navigator.service.Impl.HomepageServiceImpl;
 import java.util.List;
 import java.util.Map;

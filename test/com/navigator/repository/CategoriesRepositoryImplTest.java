@@ -1,8 +1,5 @@
 package com.navigator.repository;
 
-import static org.junit.Assert.*;
-
-import com.navigator.entity.Category;
 import com.navigator.repository.Impl.CategoriesRepositoryImpl;
 import java.util.List;
 import org.junit.Test;
