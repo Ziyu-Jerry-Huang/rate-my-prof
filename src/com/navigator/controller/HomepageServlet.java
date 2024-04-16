@@ -1,6 +1,5 @@
 package com.navigator.controller;
 
-import com.navigator.service.Impl.HomepageServiceImpl;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -13,13 +12,9 @@ import java.util.Map;
 @WebServlet("/home")
 public class HomepageServlet extends HttpServlet {
 
-  private HomepageService homepageService = new HomepageServiceImpl();
 
   @Override
-  protected void doGet(HttpServletRequest req, HttpServletResponse resp)
-      throws IOException, ServletException {
-    Map<Category, List<Agent>> agentsInCategories = homepageService.allAgents();
-    req.setAttribute("agentsInCategories", agentsInCategories);
-    req.getRequestDispatcher("/index.jsp").forward(req, resp);
+  protected void doGet(HttpServletRequest req, HttpServletResponse resp){
+
   }
 }
