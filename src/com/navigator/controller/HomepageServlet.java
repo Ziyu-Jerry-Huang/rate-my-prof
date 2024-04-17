@@ -1,5 +1,7 @@
 package com.navigator.controller;
 
+import com.navigator.service.ProfessorService;
+import com.navigator.service.impl.ProfessorServiceImpl;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
