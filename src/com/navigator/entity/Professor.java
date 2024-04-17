@@ -10,6 +10,11 @@ public class Professor {
         this.name = name;
         this.campusId = campusId;
     }
+    public Professor(String name, Integer campusId) {
+        this.professorId = null;
+        this.name = name;
+        this.campusId = campusId;
+    }
 
     public Integer getProfessorId() {
         return professorId;
