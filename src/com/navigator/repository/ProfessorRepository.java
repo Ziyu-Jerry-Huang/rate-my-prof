@@ -3,8 +3,18 @@ package com.navigator.repository;
 import com.navigator.entity.Professor;
 
 public interface ProfessorRepository {
-    //add professor to database
+
+    /**
+     * add professor to database
+     * @param name the name of the professor
+     * @param campusId the id of the campus where the professor works
+     */
     void addProfessor(String name, Integer campusId);
-    //search for professor by name
+
+    /**
+     * search for professor by name
+     * @param name the name of the professor to search for
+     * @return
+     */
     Professor searchProfessorByName(String name);
 }

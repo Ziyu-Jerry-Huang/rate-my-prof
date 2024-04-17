@@ -9,8 +9,8 @@ public class ProfessorRepositoryImplTest {
     public void testAddProfessor() {
         ProfessorRepository professorRepository = new ProfessorRepositoryImpl();
         professorRepository.addProfessor("Mark Miller", 1);
-        // verify that the professor was added to the database
     }
+
     @Test
     public void testSearchProfessorByName() {
         Professor professor = new Professor(1, "Mark Miller", 1);
