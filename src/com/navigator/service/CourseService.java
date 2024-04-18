@@ -1,5 +1,5 @@
-package com.navigator.repository;
+package com.navigator.service;
 
-public interface CourseRepository {
+public interface CourseService {
     void addCourse(String courseName, Integer professorId, String courseCode, Integer campusId);
 }

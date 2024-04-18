@@ -54,4 +54,28 @@ public class ProfessorRepositoryImpl implements ProfessorRepository {
         return professor;
     }
 
+    @Override
+    public Integer getProfessorIdByCourseId(Integer courseId) {
+        Connection connection = null;
+        PreparedStatement statement = null;
+        String sql = "SELECT professor_id FROM courses WHERE course_id = ?";
+        ResultSet resultSet = null;
+        Integer professorId = null;
+        try{
+            connection = JDBCTools.getConnection();
+            statement = connection.prepareStatement(sql);
+            statement.setInt(1, courseId);
+            resultSet = statement.executeQuery();
+            if(resultSet.next()) {
+                professorId = resultSet.getInt("professor_id");
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            JDBCTools.release(resultSet, statement, connection);
+        }
+
+        return professorId;
+    }
+
 }

@@ -17,4 +17,9 @@ public interface ProfessorRepository {
      * @return
      */
     Professor searchProfessorByName(String name);
+    /**
+     * Get the professor by course id.
+     * @param courseId the id of the professor to search for
+     */
+    Integer getProfessorIdByCourseId(Integer courseId);
 }

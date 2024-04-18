@@ -41,6 +41,7 @@ DROP TABLE IF EXISTS reviews;
 CREATE TABLE reviews (
     review_id         INT               NOT NULL AUTO_INCREMENT,
     course_id         INT               NOT NULL,
+    professor_id      INT               NOT NULL,
     rating            INT               NOT NULL,
     comment           TEXT              NOT NULL,
     date_posted       DATETIME,
