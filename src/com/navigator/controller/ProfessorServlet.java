@@ -23,8 +23,8 @@ public class ProfessorServlet extends HttpServlet {
 
     // create new professor
     String name = req.getParameter("name");
-    Integer campus_id = Integer.valueOf(req.getParameter("campus_id"));
-    professorService.addProfessor(name, campus_id);
+    Integer campusId = Integer.valueOf(req.getParameter("campus_id"));
+    professorService.addProfessor(name, campusId);
     resp.getWriter().write(
          GsonTools.success("Professor added successfully")
     );
