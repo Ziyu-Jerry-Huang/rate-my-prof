@@ -23,4 +23,13 @@ public class GsonTools {
     return success("success", message, null);
   }
 
+  public static String error(String status, String message) {
+    Response resp = new Response(status, message, null);
+    return gson.toJson(resp);
+  }
+
+  public static String error(String message) {
+    return error("error", message);
+  }
+
 }

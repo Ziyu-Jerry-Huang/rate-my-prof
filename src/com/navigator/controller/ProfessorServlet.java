@@ -11,7 +11,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-@WebServlet("/update/professor")
+@WebServlet("/professor")
 public class ProfessorServlet extends HttpServlet {
 
   private ProfessorService professorService = new ProfessorServiceImpl();
