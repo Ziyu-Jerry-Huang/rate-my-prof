@@ -8,6 +8,5 @@ public class CourseServiceImplTest {
     public void testAddCourse() {
         CourseService courseService = new CourseServiceImpl();
         courseService.addCourse("OOD", 1, "CS5004", 1);
-
     }
 }

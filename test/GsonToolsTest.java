@@ -15,7 +15,7 @@ public class GsonToolsTest {
   private Course course1, course2, course3;
   private String professor1, professor2, professor3;
   private List<Course> listOfCourses;
-  private Map<Course, Professor> mapOfCourses;
+  private Map<String, Course> mapOfCourses;
 
   @Before
   public void setUp() {
@@ -31,9 +31,10 @@ public class GsonToolsTest {
     professor1 = "Mark Miller";
     professor2 = "Lama Hamandi";
     professor3 = "John Alexis Guerra Gómez";
-    Professor professor4 = new Professor(5, "Mark Miller", 1);
     mapOfCourses = new HashMap<>();
-    mapOfCourses.put(course1, professor4);
+    mapOfCourses.put(professor1, course1);
+    mapOfCourses.put(professor2, course2);
+    mapOfCourses.put(professor3, course3);
   }
 
   @Test

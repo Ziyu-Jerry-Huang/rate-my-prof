@@ -19,7 +19,7 @@ public class ProfessorServlet extends HttpServlet {
   @Override
   protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
-     resp.setContentType("application/json; charset=UTF-8");
+    resp.setContentType("application/json; charset=UTF-8");
 
     // create new professor
     String name = req.getParameter("name");
