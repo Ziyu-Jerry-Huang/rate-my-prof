@@ -1,6 +1,8 @@
+import com.navigator.entity.Comment;
 import com.navigator.entity.Course;
 import com.navigator.entity.Professor;
 import com.navigator.utils.GsonTools;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -14,6 +16,7 @@ public class GsonToolsTest {
 
   private Course course1, course2, course3;
   private String professor1, professor2, professor3;
+  private Comment comment1;
   private List<Course> listOfCourses;
   private Map<String, Course> mapOfCourses;
 
@@ -35,6 +38,8 @@ public class GsonToolsTest {
     mapOfCourses.put(professor1, course1);
     mapOfCourses.put(professor2, course2);
     mapOfCourses.put(professor3, course3);
+
+    comment1 = new Comment(1, 1, 1, 5, "Great!", LocalDateTime.now());
   }
 
   @Test
@@ -52,6 +57,8 @@ public class GsonToolsTest {
     assertEquals(expected4, GsonTools.success("success", "Success message", mapOfCourses));
 
     // NOTE: Custom objects can be used as key in gson ONLY IF the hashcode() method is override!
+
+    System.out.println(GsonTools.success("success", "Success message", comment1));
   }
 
   public void testSuccessMsgData() {
