@@ -1,11 +1,15 @@
 package com.navigator.repository.impl;
 
+import com.navigator.entity.Course;
 import com.navigator.repository.CourseRepository;
 import com.navigator.utils.JDBCTools;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class CourseRepositoryImpl implements CourseRepository {
     @Override
@@ -27,5 +31,71 @@ public class CourseRepositoryImpl implements CourseRepository {
         } finally {
             JDBCTools.release(null, preparedStatement, connection);
         }
+    }
+
+    @Override
+    public List<Course> searchCourseByName(String name) {
+        // search course by name
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        String query = "SELECT courses.*, professors.*\n" +
+                        "FROM courses\n" +
+                        "JOIN professors ON courses.professor_id = professors.professor_id\n" +
+                        "WHERE courses.course_name LIKE ?;";
+        ResultSet resultSet = null;
+        List<Course> courses = new ArrayList<>();
+        try {
+            connection = JDBCTools.getConnection();
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, '%' + name + '%');
+            resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                Course course = new Course(
+                    resultSet.getInt("course_id"),
+                    resultSet.getString("course_name"),
+                    resultSet.getString("course_code"),
+                    resultSet.getInt("professor_id")
+                );
+                courses.add(course);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            JDBCTools.release(null, preparedStatement, connection);
+        }
+        return courses;
+    }
+
+    @Override
+    public List<Course> searchCourseByCode(String code) {
+        // search course by code
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        String query = "SELECT courses.*, professors.*\n" +
+                        "FROM courses\n" +
+                        "JOIN professors ON courses.professor_id = professors.professor_id\n" +
+                        "WHERE courses.course_code LIKE ?;";
+        ResultSet resultSet = null;
+        List<Course> courses = new ArrayList<>();
+        try {
+            connection = JDBCTools.getConnection();
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, '%' + code + '%');
+            resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                Course course = new Course(
+                    resultSet.getInt("course_id"),
+                    resultSet.getString("course_name"),
+                    resultSet.getString("course_code"),
+                    resultSet.getInt("professor_id")
+                );
+                courses.add(course);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            JDBCTools.release(null, preparedStatement, connection);
+        }
+        return courses;
     }
 }

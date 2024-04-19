@@ -5,6 +5,8 @@ import com.navigator.repository.ProfessorRepository;
 
 import com.navigator.utils.JDBCTools;
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ProfessorRepositoryImpl implements ProfessorRepository {
     @Override
@@ -26,24 +28,25 @@ public class ProfessorRepositoryImpl implements ProfessorRepository {
     }
 
     @Override
-    public Professor searchProfessorByName(String name) {
+    public List<Professor> searchProfessorByName(String name) {
         Connection connection = null;
         PreparedStatement statement = null;
-        String sql = "SELECT * FROM professors WHERE name = ?";
+        String sql = "SELECT * FROM professors WHERE name LIKE ?";
         ResultSet resultSet = null;
-        Professor professor = null;
+        List<Professor> professors = new ArrayList<>();
         // search for professor by name
         try{
             connection = JDBCTools.getConnection();
             statement = connection.prepareStatement(sql);
-            statement.setString(1, name);
+            statement.setString(1, "%" + name + "%");
             resultSet = statement.executeQuery();
-            if(resultSet.next()) {
-                professor = new Professor(
+            while(resultSet.next()) {
+                Professor professor = new Professor(
                     resultSet.getInt("professor_id"),
                     resultSet.getString("name"),
                     resultSet.getInt("campus_id")
                 );
+                professors.add(professor);
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -51,7 +54,7 @@ public class ProfessorRepositoryImpl implements ProfessorRepository {
             JDBCTools.release(resultSet, statement, connection);
         }
 
-        return professor;
+        return professors;
     }
 
     @Override

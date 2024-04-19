@@ -2,6 +2,8 @@ package com.navigator.service;
 
 import com.navigator.entity.Professor;
 
+import java.util.List;
+
 public interface ProfessorService {
     /**
      * Add a new professor to the database.
@@ -14,6 +16,6 @@ public interface ProfessorService {
      * Search for a professor by name.
      * @param name the name of the professor to search for
      */
-    Professor searchProfessorByName(String name);
+    List<Professor> searchProfessorByName(String name);
 
 }

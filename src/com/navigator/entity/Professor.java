@@ -1,5 +1,7 @@
 package com.navigator.entity;
 
+import java.util.Objects;
+
 public class Professor {
     private Integer professorId;
     private String name;
@@ -38,5 +40,22 @@ public class Professor {
 
     public void setCampusId(Integer campusId) {
         this.campusId = campusId;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, campusId);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        Professor professor = (Professor) obj;
+        return Objects.equals(name, professor.name) && Objects.equals(campusId, professor.campusId);
     }
 }

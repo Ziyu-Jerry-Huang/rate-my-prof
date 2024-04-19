@@ -5,6 +5,8 @@ import com.navigator.repository.ProfessorRepository;
 import com.navigator.repository.impl.ProfessorRepositoryImpl;
 import com.navigator.service.ProfessorService;
 
+import java.util.List;
+
 public class ProfessorServiceImpl implements ProfessorService {
     private ProfessorRepository professorRepository = new ProfessorRepositoryImpl();
     @Override
@@ -15,7 +17,7 @@ public class ProfessorServiceImpl implements ProfessorService {
     }
 
     @Override
-    public Professor searchProfessorByName(String name) {
+    public List<Professor> searchProfessorByName(String name) {
         // search for professor by name
         return professorRepository.searchProfessorByName(name);
     }

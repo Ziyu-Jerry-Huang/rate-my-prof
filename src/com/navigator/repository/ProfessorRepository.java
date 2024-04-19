@@ -2,6 +2,8 @@ package com.navigator.repository;
 
 import com.navigator.entity.Professor;
 
+import java.util.List;
+
 public interface ProfessorRepository {
 
     /**
@@ -16,7 +18,7 @@ public interface ProfessorRepository {
      * @param name the name of the professor to search for
      * @return
      */
-    Professor searchProfessorByName(String name);
+    List<Professor> searchProfessorByName(String name);
     /**
      * Get the professor by course id.
      * @param courseId the id of the professor to search for
