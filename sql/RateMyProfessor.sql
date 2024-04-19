@@ -12,7 +12,7 @@ INSERT INTO campus (campus_name)
 VALUES
     ('Online'),
     ('Boston'),
-    ('Silicon-Valley'),
+    ('Silicon Valley'),
     ('Seattle'),
     ('Oakland'),
     ('Vancouver'),
