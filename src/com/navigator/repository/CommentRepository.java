@@ -12,4 +12,7 @@ public interface CommentRepository {
 
     // Get all comments for a professor.
     List<Comment> getCommentsByProfessorId(Integer professorId);
+
+    // Get all comments for a course.
+    List<Comment> getCommentsByCourseId(Integer courseId);
 }

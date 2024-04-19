@@ -69,4 +69,36 @@ public class CommentRepositoryImpl implements CommentRepository {
         }
         return comments;
     }
+
+    @Override
+    public List<Comment> getCommentsByCourseId(Integer courseId) {
+        // get comments by course id
+        Connection connection = null;
+        PreparedStatement statement = null;
+        String sql = "SELECT * FROM reviews WHERE course_id = ?";
+        ResultSet resultSet = null;
+        List<Comment> comments = new ArrayList<>();
+        try{
+            connection = JDBCTools.getConnection();
+            statement = connection.prepareStatement(sql);
+            statement.setInt(1, courseId);
+            resultSet = statement.executeQuery();
+            while(resultSet.next()) {
+                Comment comment = new Comment(
+                    resultSet.getInt("review_id"),
+                    resultSet.getInt("course_id"),
+                    resultSet.getInt("professor_id"),
+                    resultSet.getInt("rating"),
+                    resultSet.getString("comment"),
+                    resultSet.getObject("date_posted", LocalDateTime.class)
+                );
+                comments.add(comment);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            JDBCTools.release(resultSet, statement, connection);
+        }
+        return comments;
+    }
 }

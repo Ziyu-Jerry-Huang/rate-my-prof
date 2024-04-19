@@ -22,4 +22,9 @@ public class CommentServiceImpl implements CommentService {
     public List<Comment> getCommentsByProfessorId(Integer professorId) {
         return commentRepository.getCommentsByProfessorId(professorId);
     }
+
+    @Override
+    public List<Comment> getCommentsByCourseId(Integer courseId) {
+        return commentRepository.getCommentsByCourseId(courseId);
+    }
 }

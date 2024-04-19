@@ -25,4 +25,21 @@ public class CommentServlet extends HttpServlet {
             GsonTools.success("Comment added successfully")
         );
     }
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        resp.setContentType("application/json; charset=UTF-8");
+        Integer professorId = Integer.valueOf(req.getParameter("professor_id"));
+        if(req.getParameter("professor_id") != null) {
+            resp.getWriter().write(
+                GsonTools.success("Comments retrieved successfully", commentService.getCommentsByProfessorId(professorId))
+            );
+        }else{
+            Integer courseId = Integer.valueOf(req.getParameter("course_id"));
+            resp.getWriter().write(
+                GsonTools.success("Comments retrieved successfully", commentService.getCommentsByCourseId(courseId))
+            );
+        }
+
+    }
 }

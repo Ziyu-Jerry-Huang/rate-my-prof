@@ -7,4 +7,5 @@ import java.util.List;
 public interface CommentService {
     void addComment(Integer courseId,Integer rating,String content);
     List<Comment> getCommentsByProfessorId(Integer professorId);;
+    List<Comment> getCommentsByCourseId(Integer courseId);
 }
