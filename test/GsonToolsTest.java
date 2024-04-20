@@ -22,9 +22,9 @@ public class GsonToolsTest {
 
   @Before
   public void setUp() {
-    course1 = new Course(10, "Object Oriented Design", "CS5004", 5);
-    course2 = new Course(11, "Algorithm", "CS5800", 12);
-    course3 = new Course(12, "Web Development", "CS5610", 17);
+    course1 = new Course(10, "Object Oriented Design", "CS5004", 5,null,1);
+    course2 = new Course(11, "Algorithm", "CS5800", 12,null,1);
+    course3 = new Course(12, "Web Development", "CS5610", 17,null,1);
 
     listOfCourses = new ArrayList<>();
     listOfCourses.add(course1);
@@ -39,7 +39,7 @@ public class GsonToolsTest {
     mapOfCourses.put(professor2, course2);
     mapOfCourses.put(professor3, course3);
 
-    comment1 = new Comment(1, 1, 1, 5, "Great!", LocalDateTime.now());
+    //comment1 = new Comment(1, 1, 1, 5, "Great!", LocalDateTime.now());
   }
 
   @Test

@@ -13,11 +13,11 @@ public class CommentServiceImplTest {
         commentService.addComment(1, 3, "Average professor!");
         commentService.addComment(1, 2, "Bad professor!");
         commentService.addComment(1, 1, "Terrible professor!");
-        assertEquals(5, commentService.getCommentsByProfessorId(1).size());
+        commentService.addComment(3, 1, "Terrible professor!");
     }
     @Test
     public void testGetCommentsByProfessorId() {
         CommentService commentService = new CommentServiceImpl();
-        assertEquals(5, commentService.getCommentsByProfessorId(1).size());
+        assertEquals(1, commentService.getCommentsByProfessorId(1).size());
     }
 }

@@ -42,7 +42,11 @@ public class CommentRepositoryImpl implements CommentRepository {
         // get comments by professor id
         Connection connection = null;
         PreparedStatement statement = null;
-        String sql = "SELECT * FROM reviews WHERE professor_id = ?";
+        String sql = "SELECT*\n" +
+                "FROM reviews\n" +
+                "JOIN courses ON reviews.course_id = courses.course_id\n" +
+                "JOIN professors ON reviews.professor_id = professors.professor_id\n" +
+                " WHERE reviews.professor_id = ?;";
         ResultSet resultSet = null;
     List<Comment> comments = new ArrayList<>();
         try{
@@ -54,7 +58,11 @@ public class CommentRepositoryImpl implements CommentRepository {
                 Comment comment = new Comment(
                     resultSet.getInt("review_id"),
                     resultSet.getInt("course_id"),
+                    resultSet.getString("courses.course_name"),
+                    resultSet.getString("courses.course_code"),
                     resultSet.getInt("professor_id"),
+                    resultSet.getString("professors.name"),
+                    resultSet.getInt("courses.campus_id"),
                     resultSet.getInt("rating"),
                     resultSet.getString("comment"),
                     resultSet.getObject("date_posted", LocalDateTime.class)
@@ -75,7 +83,12 @@ public class CommentRepositoryImpl implements CommentRepository {
         // get comments by course id
         Connection connection = null;
         PreparedStatement statement = null;
-        String sql = "SELECT * FROM reviews WHERE course_id = ?";
+        String sql = "SELECT reviews.*,courses.course_code as course_code, courses.course_name as course_name," +
+                    "courses.campus_id as campus_id, professors.name as professor_name\n" +
+                    "FROM reviews\n" +
+                    "JOIN courses ON reviews.course_id = courses.course_id\n" +
+                    "JOIN professors ON reviews.professor_id = professors.professor_id\n" +
+                    " WHERE reviews.course_id = ?;";
         ResultSet resultSet = null;
         List<Comment> comments = new ArrayList<>();
         try{
@@ -85,12 +98,16 @@ public class CommentRepositoryImpl implements CommentRepository {
             resultSet = statement.executeQuery();
             while(resultSet.next()) {
                 Comment comment = new Comment(
-                    resultSet.getInt("review_id"),
-                    resultSet.getInt("course_id"),
-                    resultSet.getInt("professor_id"),
-                    resultSet.getInt("rating"),
-                    resultSet.getString("comment"),
-                    resultSet.getObject("date_posted", LocalDateTime.class)
+                        resultSet.getInt("review_id"),
+                        resultSet.getInt("course_id"),
+                        resultSet.getString("course_name"),
+                        resultSet.getString("course_code"),
+                        resultSet.getInt("professor_id"),
+                        resultSet.getString("professor_name"),
+                        resultSet.getInt("campus_id"),
+                        resultSet.getInt("rating"),
+                        resultSet.getString("comment"),
+                        resultSet.getObject("date_posted", LocalDateTime.class)
                 );
                 comments.add(comment);
             }

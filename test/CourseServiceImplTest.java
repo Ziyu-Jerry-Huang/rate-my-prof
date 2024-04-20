@@ -21,16 +21,16 @@ public class CourseServiceImplTest {
         CourseService courseService = new CourseServiceImpl();
         courses = courseService.searchCourseByName("OOD");
         for (Course course : courses) {
-            System.out.println(course.getCourseCode());
+            System.out.println(course.getProfessorName());
         }
     }
 
     @Test
     public void testSearchCourseByCode() {
         CourseService courseService = new CourseServiceImpl();
-        courses = courseService.searchCourseByCode("CS5004");
+        courses = courseService.searchCourseByCode("CS5008");
         for (Course course : courses) {
-            System.out.println(course.getCourseName());
+            System.out.println(course.getProfessorName());
         }
     }
 }

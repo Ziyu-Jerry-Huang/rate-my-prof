@@ -54,7 +54,9 @@ public class CourseRepositoryImpl implements CourseRepository {
                     resultSet.getInt("course_id"),
                     resultSet.getString("course_name"),
                     resultSet.getString("course_code"),
-                    resultSet.getInt("professor_id")
+                    resultSet.getInt("professor_id"),
+                    resultSet.getString("professors.name"),
+                    resultSet.getInt("campus_id")
                 );
                 courses.add(course);
             }
@@ -87,7 +89,9 @@ public class CourseRepositoryImpl implements CourseRepository {
                     resultSet.getInt("course_id"),
                     resultSet.getString("course_name"),
                     resultSet.getString("course_code"),
-                    resultSet.getInt("professor_id")
+                    resultSet.getInt("professor_id"),
+                    resultSet.getString("professors.name"),
+                    resultSet.getInt("campus_id")
                 );
                 courses.add(course);
             }

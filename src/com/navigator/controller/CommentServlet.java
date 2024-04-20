@@ -29,16 +29,26 @@ public class CommentServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         resp.setContentType("application/json; charset=UTF-8");
-        Integer professorId = Integer.valueOf(req.getParameter("professor_id"));
-        if(req.getParameter("professor_id") != null) {
-            resp.getWriter().write(
-                GsonTools.success("Comments retrieved successfully", commentService.getCommentsByProfessorId(professorId))
-            );
-        }else{
-            Integer courseId = Integer.valueOf(req.getParameter("course_id"));
-            resp.getWriter().write(
-                GsonTools.success("Comments retrieved successfully", commentService.getCommentsByCourseId(courseId))
-            );
+        String action = req.getParameter("action");
+        if(action != null){
+            switch(action){
+                case "getCommentsByProfessorId":
+                    Integer professorId = Integer.valueOf(req.getParameter("professor_id"));
+                    resp.getWriter().write(
+                        GsonTools.success("Get comments by professor id successfully", commentService.getCommentsByProfessorId(professorId))
+                    );
+                    break;
+                case "getCommentsByCourseId":
+                    Integer courseId = Integer.valueOf(req.getParameter("course_id"));
+                    resp.getWriter().write(
+                        GsonTools.success("Get comments by course id successfully", commentService.getCommentsByCourseId(courseId))
+                    );
+                    break;
+                default:
+                    resp.getWriter().write(
+                        GsonTools.error("Invalid action")
+                    );
+            }
         }
 
     }

@@ -7,12 +7,32 @@ public class Course {
     private String courseName;
     private String courseCode;
     private Integer professorId;
+    private String professorName;
+    private Integer campusId;
 
-    public Course(Integer courseId, String courseName, String courseCode, Integer professorId) {
+    public Course(Integer courseId, String courseName, String courseCode, Integer professorId, String professorName, Integer campusId) {
         this.courseId = courseId;
         this.courseName = courseName;
         this.courseCode = courseCode;
         this.professorId = professorId;
+        this.professorName = professorName;
+        this.campusId = campusId;
+    }
+
+    public Integer getCampusId() {
+        return campusId;
+    }
+
+    public void setCampusId(Integer campusId) {
+        this.campusId = campusId;
+    }
+
+    public String getProfessorName() {
+        return professorName;
+    }
+
+    public void setProfessorName(String professorName) {
+        this.professorName = professorName;
     }
 
     public Integer getCourseId() {
