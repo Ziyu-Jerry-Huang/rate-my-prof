@@ -44,7 +44,8 @@ public class ProfessorRepositoryImpl implements ProfessorRepository {
                 Professor professor = new Professor(
                     resultSet.getInt("professor_id"),
                     resultSet.getString("name"),
-                    resultSet.getInt("campus_id")
+                    resultSet.getInt("campus_id"),
+                    resultSet.getDouble("rating")
                 );
                 professors.add(professor);
             }
@@ -79,6 +80,25 @@ public class ProfessorRepositoryImpl implements ProfessorRepository {
         }
 
         return professorId;
+    }
+
+    @Override
+    public void updateRating(Integer professorId) {
+        Connection connection = null;
+        PreparedStatement statement = null;
+        String sql = "UPDATE professors SET rating = (SELECT AVG(rating) " +
+                "FROM reviews WHERE professor_id = ?) WHERE professor_id = ?";
+        try{
+            connection = JDBCTools.getConnection();
+            statement = connection.prepareStatement(sql);
+            statement.setInt(1, professorId);
+            statement.setInt(2, professorId);
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            JDBCTools.release(null, statement, connection);
+        }
     }
 
 }

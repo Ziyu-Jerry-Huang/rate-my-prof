@@ -8,10 +8,7 @@ import com.navigator.repository.impl.CourseRepositoryImpl;
 import com.navigator.repository.impl.ProfessorRepositoryImpl;
 import com.navigator.service.SearchService;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class SearchServiceImpl implements SearchService {
     private CourseRepository courseRepository = new CourseRepositoryImpl();
@@ -32,5 +29,13 @@ public class SearchServiceImpl implements SearchService {
         Set<Professor> professors = new HashSet<>();
         professors.addAll(professorRepository.searchProfessorByName(keyword));
         return professors;
+    }
+
+    @Override
+    public <T extends Comparable<T>> List<T> sortByAlphabet(Set<T> set) {
+        // sort set by alphabet
+        List<T> list = new ArrayList<>(set);
+        Collections.sort(list);
+        return list;
     }
 }

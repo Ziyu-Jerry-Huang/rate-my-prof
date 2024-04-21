@@ -24,4 +24,6 @@ public interface ProfessorRepository {
      * @param courseId the id of the professor to search for
      */
     Integer getProfessorIdByCourseId(Integer courseId);
+
+    void updateRating(Integer professorId);
 }

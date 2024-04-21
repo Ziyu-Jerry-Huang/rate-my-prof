@@ -17,7 +17,7 @@ public class ProfessorRepositoryImplTest {
 
     @Test
     public void testSearchProfessorByName() {
-        Professor professor = new Professor(1, "Mark Miller", 1);
+        Professor professor = new Professor(1, "Mark Miller", 1,5.0);
         ProfessorRepository professorRepository = new ProfessorRepositoryImpl();
         List<Professor> profMark = professorRepository.searchProfessorByName("Mark Miller");
         // verify that the professor was found

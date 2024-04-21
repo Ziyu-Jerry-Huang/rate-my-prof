@@ -56,7 +56,8 @@ public class CourseRepositoryImpl implements CourseRepository {
                     resultSet.getString("course_code"),
                     resultSet.getInt("professor_id"),
                     resultSet.getString("professors.name"),
-                    resultSet.getInt("campus_id")
+                    resultSet.getInt("campus_id"),
+                    resultSet.getDouble("professors.rating")
                 );
                 courses.add(course);
             }
@@ -91,7 +92,8 @@ public class CourseRepositoryImpl implements CourseRepository {
                     resultSet.getString("course_code"),
                     resultSet.getInt("professor_id"),
                     resultSet.getString("professors.name"),
-                    resultSet.getInt("campus_id")
+                    resultSet.getInt("campus_id"),
+                    resultSet.getDouble("professors.rating")
                 );
                 courses.add(course);
             }
@@ -101,5 +103,26 @@ public class CourseRepositoryImpl implements CourseRepository {
             JDBCTools.release(null, preparedStatement, connection);
         }
         return courses;
+    }
+
+    @Override
+    public void updateRating(Integer courseId) {
+        // update rating
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        String query = "UPDATE courses\n" +
+                        "SET rating = (SELECT AVG(rating) FROM reviews WHERE course_id = ?)\n" +
+                        "WHERE course_id = ?;";
+        try {
+            connection = JDBCTools.getConnection();
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, courseId);
+            preparedStatement.setInt(2, courseId);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            JDBCTools.release(null, preparedStatement, connection);
+        }
     }
 }

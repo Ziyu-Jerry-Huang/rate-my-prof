@@ -6,16 +6,26 @@ public class Professor {
     private Integer professorId;
     private String name;
     private Integer campusId;
+    private Double rating;
 
-    public Professor(Integer professorId, String name, Integer campusId) {
+    public Professor(Integer professorId, String name, Integer campusId, Double rating) {
         this.professorId = professorId;
         this.name = name;
         this.campusId = campusId;
+        this.rating = rating;
     }
     public Professor(String name, Integer campusId) {
         this.professorId = null;
         this.name = name;
         this.campusId = campusId;
+    }
+
+    public Double getRating() {
+        return rating;
+    }
+
+    public void setRating(Double rating) {
+        this.rating = rating;
     }
 
     public Integer getProfessorId() {

@@ -32,6 +32,7 @@ CREATE TABLE professors (
     professor_id      INT               NOT NULL AUTO_INCREMENT ,
     name              VARCHAR(255)      NOT NULL,
     campus_id         INT,
+    rating            DECIMAL(3,2),
     PRIMARY KEY(professor_id)
 );
 
@@ -57,5 +58,6 @@ CREATE TABLE courses(
     course_code       VARCHAR(255)       NOT NULL,
     professor_id      INT                NOT NULL,
     campus_id         INT                NOT NULL,
+    rating            DECIMAL(3,2),
     PRIMARY KEY(course_id)
 );

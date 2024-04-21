@@ -2,21 +2,32 @@ package com.navigator.entity;
 
 import java.util.Objects;
 
-public class Course {
+public class Course implements Comparable<Course> {
     private Integer courseId;
     private String courseName;
     private String courseCode;
     private Integer professorId;
     private String professorName;
     private Integer campusId;
+    private Double rating;
 
-    public Course(Integer courseId, String courseName, String courseCode, Integer professorId, String professorName, Integer campusId) {
+    public Course(Integer courseId, String courseName, String courseCode, Integer professorId,
+                  String professorName, Integer campusId, Double rating) {
         this.courseId = courseId;
         this.courseName = courseName;
         this.courseCode = courseCode;
         this.professorId = professorId;
         this.professorName = professorName;
         this.campusId = campusId;
+        this.rating = rating;
+    }
+
+    public Double getRating() {
+        return rating;
+    }
+
+    public void setRating(Double rating) {
+        this.rating = rating;
     }
 
     public Integer getCampusId() {
@@ -83,5 +94,10 @@ public class Course {
         Course course = (Course) obj;
         return Objects.equals(courseName, course.courseName)
                 && Objects.equals(courseCode, course.courseCode) && Objects.equals(professorId, course.professorId);
+    }
+
+    @Override
+    public int compareTo(Course other) {
+        return this.courseName.compareTo(other.courseName);
     }
 }

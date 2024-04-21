@@ -22,9 +22,9 @@ public class GsonToolsTest {
 
   @Before
   public void setUp() {
-    course1 = new Course(10, "Object Oriented Design", "CS5004", 5,null,1);
-    course2 = new Course(11, "Algorithm", "CS5800", 12,null,1);
-    course3 = new Course(12, "Web Development", "CS5610", 17,null,1);
+    course1 = new Course(10, "Object Oriented Design", "CS5004", 5,null,1,5.0);
+    course2 = new Course(11, "Algorithm", "CS5800", 12,null,1,4.5);
+    course3 = new Course(12, "Web Development", "CS5610", 17,null,1,4.0);
 
     listOfCourses = new ArrayList<>();
     listOfCourses.add(course1);

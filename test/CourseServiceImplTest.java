@@ -13,7 +13,7 @@ public class CourseServiceImplTest {
     public void testAddCourse() {
         CourseService courseService = new CourseServiceImpl();
         courseService.addCourse("OOD", 1, "CS5004", 1);
-        courseService.addCourse("Data Structure", 4, "CS5008", 1);
+        courseService.addCourse("Data Structure", 2, "CS5008", 1);
     }
 
     @Test
@@ -33,4 +33,5 @@ public class CourseServiceImplTest {
             System.out.println(course.getProfessorName());
         }
     }
+
 }

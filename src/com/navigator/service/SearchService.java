@@ -11,4 +11,5 @@ public interface SearchService {
 
     Set<Professor> searchProfessors(String keyword);
 
+    <T extends  Comparable<T>> List<T> sortByAlphabet(Set<T> set);
 }

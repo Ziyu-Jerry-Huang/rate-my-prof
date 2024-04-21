@@ -2,8 +2,10 @@ package com.navigator.service.impl;
 
 import com.navigator.entity.Comment;
 import com.navigator.repository.CommentRepository;
+import com.navigator.repository.CourseRepository;
 import com.navigator.repository.ProfessorRepository;
 import com.navigator.repository.impl.CommentRepositoryImpl;
+import com.navigator.repository.impl.CourseRepositoryImpl;
 import com.navigator.repository.impl.ProfessorRepositoryImpl;
 import com.navigator.service.CommentService;
 
@@ -13,10 +15,14 @@ import java.util.List;
 public class CommentServiceImpl implements CommentService {
     private CommentRepository commentRepository = new CommentRepositoryImpl();
     private ProfessorRepository professorRepository = new ProfessorRepositoryImpl();
+    private CourseRepository courseRepository = new CourseRepositoryImpl();
+
     @Override
     public void addComment(Integer courseId, Integer rating, String content) {
         Integer professorId = professorRepository.getProfessorIdByCourseId(courseId);
         commentRepository.addComment(courseId, professorId, rating, content, LocalDateTime.now());
+        professorRepository.updateRating(professorId);
+        courseRepository.updateRating(courseId);
     }
     @Override
     public List<Comment> getCommentsByProfessorId(Integer professorId) {
