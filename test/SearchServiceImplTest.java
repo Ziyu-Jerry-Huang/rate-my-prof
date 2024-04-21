@@ -10,7 +10,7 @@ public class SearchServiceImplTest {
     @Test
     public void testSearchCourses() {
         SearchService searchService = new SearchServiceImpl();
-        Set<Course> courses = searchService.searchCourses("CS");
+        Set<Course> courses = searchService.searchCourses("CS",null);
         for (Course course : courses) {
             System.out.println(course.getCourseCode());
         }
@@ -19,7 +19,7 @@ public class SearchServiceImplTest {
     @Test
     public void testSearchProfessors() {
         SearchService searchService = new SearchServiceImpl();
-        Set<Professor> professors = searchService.searchProfessors("Ma");
+        Set<Professor> professors = searchService.searchProfessors("Ma",null);
         for (Professor professor : professors) {
             System.out.println(professor.getName());
         }

@@ -23,11 +23,24 @@ public class SearchServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         resp.setContentType("application/json; charset=UTF-8");
         String keyword = req.getParameter("keyword");
-        Set<Course> courses = searchService.searchCourses(keyword);
-        Set<Professor> professors = searchService.searchProfessors(keyword);
+        Integer campusId = Integer.valueOf(req.getParameter("campus_id"));
+        boolean haveCourse = Boolean.parseBoolean(req.getParameter("have_course"));
+        boolean haveProfessor = Boolean.parseBoolean(req.getParameter("have_professor"));
         Map<String, Object> result = new HashMap<>();
-        result.put("courses", courses);
-        result.put("professors", professors);
-        resp.getWriter().write(GsonTools.success("search completed",result));
+        if(haveCourse){
+            Set<Course> courses = searchService.searchCourses(keyword,campusId);
+            resp.getWriter().write(GsonTools.success("search completed", courses));
+        }
+        else if(haveProfessor){
+            Set<Professor> professors = searchService.searchProfessors(keyword,campusId);
+            resp.getWriter().write(GsonTools.success("search completed", professors));
+        }
+        else{
+            Set<Course> courses = searchService.searchCourses(keyword,campusId);
+            Set<Professor> professors = searchService.searchProfessors(keyword,campusId);
+            result.put("courses", courses);
+            result.put("professors", professors);
+            resp.getWriter().write(GsonTools.success("search completed", result));
+        }
     }
 }
