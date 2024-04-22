@@ -2,7 +2,7 @@ package com.navigator.entity;
 
 import java.util.Objects;
 
-public class Course implements Comparable<Course> {
+public class Course {
     private Integer courseId;
     private String courseName;
     private String courseCode;
@@ -96,8 +96,4 @@ public class Course implements Comparable<Course> {
                 && Objects.equals(courseCode, course.courseCode) && Objects.equals(professorId, course.professorId);
     }
 
-    @Override
-    public int compareTo(Course other) {
-        return this.courseName.compareTo(other.courseName);
-    }
 }

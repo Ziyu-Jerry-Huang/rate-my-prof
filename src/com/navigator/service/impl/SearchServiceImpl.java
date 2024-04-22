@@ -2,6 +2,9 @@ package com.navigator.service.impl;
 
 import com.navigator.entity.Course;
 import com.navigator.entity.Professor;
+import com.navigator.entity.Sort;
+import com.navigator.entity.comparator.sortByCourseCode;
+import com.navigator.entity.comparator.sortByProfessorName;
 import com.navigator.repository.CourseRepository;
 import com.navigator.repository.ProfessorRepository;
 import com.navigator.repository.impl.CourseRepositoryImpl;
@@ -16,41 +19,50 @@ public class SearchServiceImpl implements SearchService {
     private ProfessorRepository professorRepository = new ProfessorRepositoryImpl();
 
     @Override
-    public Set<Course> searchCourses(String keyword, Integer campusId) {
+    public List<Course> searchCourses(String keyword, Integer campusId, Sort sort) {
         // search courses in database
         Set<Course> courses = new HashSet<Course>();
         courses.addAll(courseRepository.searchCourseByName(keyword));
         courses.addAll(courseRepository.searchCourseByCode(keyword));
+        List<Course> courseList = new ArrayList<>(courses);
+        switch (sort){
+            case CourseCode:
+                Collections.sort(courseList, new sortByCourseCode());
+                break;
+            default:
+                break;
+        }
         if(campusId == null){
-            return courses;
+            return courseList;
         }else{
-            Set<Course> coursesByCampus = courses.stream()
+            List<Course> coursesByCampus = courseList.stream()
                     .filter(course -> course.getCampusId().equals(campusId))
-                    .collect(Collectors.toSet());
+                    .collect(Collectors.toList());
             return coursesByCampus;
             }
     }
 
     @Override
-    public Set<Professor> searchProfessors(String keyword, Integer campusId) {
+    public List<Professor> searchProfessors(String keyword, Integer campusId, Sort sort) {
         // search professors in database
         Set<Professor> professors = new HashSet<>();
         professors.addAll(professorRepository.searchProfessorByName(keyword));
+        List<Professor> professorList = new ArrayList<>(professors);
+        switch (sort){
+            case ProfessorName:
+                Collections.sort(professorList, new sortByProfessorName());
+                break;
+            default:
+                break;
+        }
         if(campusId == null){
-            return professors;
+            return professorList;
         }else{
-            Set<Professor> professorsByCampus = professors.stream()
+            List<Professor> professorsByCampus = professorList.stream()
                     .filter(professor -> professor.getCampusId().equals(campusId))
-                    .collect(Collectors.toSet());
+                    .collect(Collectors.toList());
             return professorsByCampus;
         }
     }
 
-    @Override
-    public <T extends Comparable<T>> List<T> sortByAlphabet(Set<T> set) {
-        // sort set by alphabet
-        List<T> list = new ArrayList<>(set);
-        Collections.sort(list);
-        return list;
-    }
 }

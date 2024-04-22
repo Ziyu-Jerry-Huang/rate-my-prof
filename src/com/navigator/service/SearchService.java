@@ -2,14 +2,14 @@ package com.navigator.service;
 
 import com.navigator.entity.Course;
 import com.navigator.entity.Professor;
+import com.navigator.entity.Sort;
 
 import java.util.List;
 import java.util.Set;
 
 public interface SearchService {
-    Set<Course> searchCourses(String keyword,Integer campusId);
+    List<Course> searchCourses(String keyword, Integer campusId, Sort sort);
 
-    Set<Professor> searchProfessors(String keyword,Integer campusId);
+    List<Professor> searchProfessors(String keyword,Integer campusId, Sort sort);
 
-    <T extends  Comparable<T>> List<T> sortByAlphabet(Set<T> set);
 }
