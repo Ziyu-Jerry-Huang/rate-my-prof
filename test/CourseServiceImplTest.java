@@ -12,8 +12,8 @@ public class CourseServiceImplTest {
     @Test
     public void testAddCourse() {
         CourseService courseService = new CourseServiceImpl();
-        courseService.addCourse("OOD", 1, "CS5004", 1);
-        courseService.addCourse("Data Structure", 2, "CS5008", 1);
+        courseService.addCourse("OOD", "mark", "CS5004", 1);
+        courseService.addCourse("Data Structure", "mark", "CS5008", 1);
     }
 
     @Test

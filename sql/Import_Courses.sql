@@ -5,3 +5,6 @@ FIELDS TERMINATED BY ','
 LINES TERMINATED BY '\n'
 IGNORE 1 ROWS
 (course_name, course_code,campus_id,professor_id);
+UPDATE courses
+SET rating = (SELECT AVG(rating) FROM reviews WHERE course_id = courses.course_id);
+

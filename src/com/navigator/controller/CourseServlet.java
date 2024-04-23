@@ -19,11 +19,18 @@ public class CourseServlet extends HttpServlet {
         resp.setContentType("application/json; charset=UTF-8");
         String courseName = req.getParameter("course_name");
         String courseCode = req.getParameter("course_code");
-        Integer professorId = Integer.valueOf(req.getParameter("professor_id"));
+        String professorName = req.getParameter("professor_name");
         Integer campusId = Integer.valueOf(req.getParameter("campus_id"));
-        courseService.addCourse(courseName, professorId,courseCode, campusId);
-        resp.getWriter().write(
-            GsonTools.success("Course added successfully")
-        );
+        try {
+            courseService.addCourse(courseName, professorName,courseCode, campusId);
+            resp.getWriter().write(
+                    GsonTools.success("Course added successfully")
+            );
+        }catch (NullPointerException e){
+            resp.getWriter().write(
+                    GsonTools.error("Professor not found")
+            );
+        }
+
     }
 }
