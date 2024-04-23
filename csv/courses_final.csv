@@ -1,0 +1,59 @@
+﻿name,course_name,course_code,campus_id,professor_id
+Abigail(Abi) Evans,Intensive Foundations of Computer Science,5001,3,1
+Abraham Bagherjeiran,Discrete Structures,5002,3,2
+Alex Donaldson,Intensive Foundations of Computer Science,5001,3,5
+Alexander Lash,Database Management Systems,5200,4,6
+Alonso,Discrete Structures,5002,1,7
+Andrew Jelani,Programing Design Paradigm,5010,2,8
+Anthony(Tony) Mullen,Intensive Foundations of Computer Science,5001,1,10
+Anthony(Tony) Mullen,Intensive Foundations of Computer Science,5001,1,9
+Anthony(Tony) Mullen,Intensive Foundations of Computer Science,5001,1,12
+Anthony(Tony) Mullen,Intensive Foundations of Computer Science,5001,1,11
+Anthony(Tony) Mullen,Discrete Structures,5002,2,10
+Anthony(Tony) Mullen,Discrete Structures,5002,2,9
+Anthony(Tony) Mullen,Discrete Structures,5002,2,12
+Anthony(Tony) Mullen,Discrete Structures,5002,2,11
+Anthony(Tony) Mullen,Discrete Structures,5002,3,10
+Anthony(Tony) Mullen,Discrete Structures,5002,3,9
+Anthony(Tony) Mullen,Discrete Structures,5002,3,12
+Anthony(Tony) Mullen,Discrete Structures,5002,3,11
+Anurag,Discrete Structures,5002,3,13
+Austin Jorgensen (Hunter),Web Development,5610,3,14
+Craig Martell,Mobile Application Development,5520,4,18
+Cross Brian,Discrete Structures,5002,3,19
+David Stalfa,Discrete Structures,5002,4,21
+Divya Chaudhary,Object-Oriented Design,5004,3,22
+Francisco(Paco) Mesch,Web Development,5610,4,25
+Hailpern Brent,Data Structures Algorithms and Their Applications within Computer Systems,5008,3,26
+Hamandi Lama,Data Structures Algorithms and Their Applications within Computer Systems,5008,4,27
+Huy Nguyên,Data Structures Algorithms and Their Applications within Computer Systems,5008,2,29
+Jack Tomas,Intensive Foundations of Computer Science,5001,3,31
+Jeongkyu Lee,Pattern Recognition and Computer Vision,5330,3,32
+Jeongkyu Lee,Pattern Recognition and Computer Vision,5330,3,33
+John Guerra,Programing Design Paradigm,5010,1,36
+John Guerra,Programing Design Paradigm,5010,1,37
+John Guerra,Programing Design Paradigm,5010,4,36
+John Guerra,Programing Design Paradigm,5010,4,37
+John Guerra,Foundations of Artificial Intelligence,5100,1,36
+John Guerra,Foundations of Artificial Intelligence,5100,1,37
+John Rachlin,Algorithms,5800,4,35
+John Wilder,Database Management Systems,5200,2,38
+John Wilder,Database Management Systems,5200,2,39
+John Wilder,Database Management Systems,5200,3,38
+John Wilder,Database Management Systems,5200,3,39
+Lino Coria Mendoza,Object-Oriented Design,5004,6,47
+Maria Jump,Foundations of Software Engineering,5500,4,49
+Matt Higger,Computer Systems,5600,4,53
+Michael Shah,Machine Learning,6140,1,54
+Mohammadhossein Toutiaee,Discrete Structures,5002,3,55
+Mona Ali,Intensive Foundations of Computer Science,5001,6,56
+Paul Hand,Fundamentals of Computer Networking,5700,4,58
+Richard Hoshino,Algorithms,5800,6,65
+Running Wolf,Algorithms,5800,1,66
+Scott Valcourt,Natural Language Processing,6120,1,70
+Smruthi Mukund,Information Retrieval,6200,1,72
+Tamara Bonaci,Privacy Security and Usability,6760,1,75
+Tehmina Amjad,Discrete Structures,5002,3,76
+Thomas Jack,Database Management Systems,5200,6,77
+Zhifeng Sun,Foundamentals of Cloud Computing,6620,1,82
+Zhifeng Sun,Building Scalable Distributed Systems,6650,1,82
