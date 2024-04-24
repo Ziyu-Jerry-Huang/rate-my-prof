@@ -5,10 +5,6 @@ FIELDS TERMINATED BY ',' ENCLOSED BY '"'
 LINES TERMINATED BY '\n'
 IGNORE 1 ROWS
 (name, campus_id);
-UPDATE professors
-SET rating = (SELECT AVG(rating)
-              FROM reviews
-              WHERE reviews.professor_id = professors.professor_id);
 
 LOAD DATA LOCAL INFILE '/Users/xinruiyi/Documents/GitHub/rate-my-prof/csv/Comments_final_matched.csv'
 INTO TABLE reviews
