@@ -78,11 +78,20 @@ public class Course {
         this.professorId = professorId;
     }
 
+    /**
+     * Override hashCode method to generate hash code based on courseName, courseCode and professorId
+     * @return hash code
+     */
     @Override
     public int hashCode() {
         return Objects.hash(courseName, courseCode, professorId);
     }
 
+    /**
+     * Override equals method to compare two Course objects based on courseName, courseCode and professorId
+     * @param obj object to compare
+     * @return true if objects are equal, false otherwise
+     */
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {

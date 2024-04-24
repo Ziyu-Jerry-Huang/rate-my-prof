@@ -4,6 +4,9 @@ import com.navigator.entity.Professor;
 
 import java.util.Comparator;
 
+/**
+ * Comparator class to sort professors by name.
+ */
 public class sortByProfessorName implements Comparator<Professor> {
 
     @Override

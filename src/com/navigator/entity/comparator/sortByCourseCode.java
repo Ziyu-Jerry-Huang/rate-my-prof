@@ -4,6 +4,9 @@ import com.navigator.entity.Course;
 
 import java.util.Comparator;
 
+/**
+ * Comparator class to sort courses by course code.
+ */
 public class sortByCourseCode implements Comparator<Course> {
 
     @Override

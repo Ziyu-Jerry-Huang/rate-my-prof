@@ -4,6 +4,10 @@ import com.navigator.entity.Professor;
 
 import java.util.List;
 
+
+/**
+ * Service interface for Professor service.
+ */
 public interface ProfessorService {
     /**
      * Add a new professor to the database.
@@ -18,5 +22,9 @@ public interface ProfessorService {
      */
     List<Professor> searchProfessorByName(String name);
 
+    /**
+     * Delete a professor by professorId.
+     * @param professorId
+     */
     void deleteProfessor(Integer professorId);
 }
