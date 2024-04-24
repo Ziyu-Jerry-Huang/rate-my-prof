@@ -16,5 +16,5 @@ public interface CommentRepository {
     // Get all comments for a course.
     List<Comment> getCommentsByCourseId(Integer courseId);
 
-
+    void deleteComment(Integer commentId);
 }

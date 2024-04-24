@@ -18,4 +18,5 @@ public interface ProfessorService {
      */
     List<Professor> searchProfessorByName(String name);
 
+    void deleteProfessor(Integer professorId);
 }

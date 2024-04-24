@@ -8,4 +8,5 @@ public interface CommentService {
     void addComment(Integer courseId,Integer rating,String content);
     List<Comment> getCommentsByProfessorId(Integer professorId);;
     List<Comment> getCommentsByCourseId(Integer courseId);
+    void deleteComment(Integer commentId);
 }

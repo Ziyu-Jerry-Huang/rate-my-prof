@@ -26,4 +26,5 @@ public interface ProfessorRepository {
     Integer getProfessorIdByCourseId(Integer courseId);
 
     void updateRating(Integer professorId);
+    void deleteProfessor(Integer professorId);
 }

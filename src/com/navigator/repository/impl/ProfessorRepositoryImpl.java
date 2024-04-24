@@ -101,4 +101,20 @@ public class ProfessorRepositoryImpl implements ProfessorRepository {
         }
     }
 
+    @Override
+    public void deleteProfessor(Integer professorId) {
+        Connection connection = null;
+        PreparedStatement statement = null;
+        String sql = "DELETE FROM professors WHERE professor_id = ?";
+        try{
+            connection = JDBCTools.getConnection();
+            statement = connection.prepareStatement(sql);
+            statement.setInt(1, professorId);
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            JDBCTools.release(null, statement, connection);
+        }
+    }
 }

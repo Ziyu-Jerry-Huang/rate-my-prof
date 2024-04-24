@@ -33,4 +33,9 @@ public class CommentServiceImpl implements CommentService {
     public List<Comment> getCommentsByCourseId(Integer courseId) {
         return commentRepository.getCommentsByCourseId(courseId);
     }
+
+    @Override
+    public void deleteComment(Integer commentId) {
+        commentRepository.deleteComment(commentId);
+    }
 }

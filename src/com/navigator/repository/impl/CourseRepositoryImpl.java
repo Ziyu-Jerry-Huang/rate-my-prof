@@ -125,4 +125,22 @@ public class CourseRepositoryImpl implements CourseRepository {
             JDBCTools.release(null, preparedStatement, connection);
         }
     }
+
+    @Override
+    public void deleteCourse(Integer courseId) {
+        // delete course
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        String query = "DELETE FROM courses WHERE course_id = ?;";
+        try {
+            connection = JDBCTools.getConnection();
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, courseId);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            JDBCTools.release(null, preparedStatement, connection);
+        }
+    }
 }

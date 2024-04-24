@@ -8,4 +8,5 @@ public interface CourseService {
     void addCourse(String courseName, String name, String courseCode, Integer campusId);
     List<Course> searchCourseByName(String name);
     List<Course> searchCourseByCode(String code);
+    void deleteCourse(Integer courseId);
 }

@@ -9,4 +9,5 @@ public interface CourseRepository {
     List<Course> searchCourseByName(String name);
     List<Course> searchCourseByCode(String code);
     void updateRating(Integer courseId);
+    void deleteCourse(Integer courseId);
 }

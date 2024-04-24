@@ -118,4 +118,22 @@ public class CommentRepositoryImpl implements CommentRepository {
         }
         return comments;
     }
+
+    @Override
+    public void deleteComment(Integer commentId) {
+        // delete comment by comment id
+        Connection connection = null;
+        PreparedStatement statement = null;
+        String sql = "DELETE FROM reviews WHERE review_id = ?";
+        try{
+            connection = JDBCTools.getConnection();
+            statement = connection.prepareStatement(sql);
+            statement.setInt(1, commentId);
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            JDBCTools.release(null, statement, connection);
+        }
+    }
 }

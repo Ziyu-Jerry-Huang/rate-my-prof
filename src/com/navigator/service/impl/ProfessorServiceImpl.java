@@ -21,4 +21,10 @@ public class ProfessorServiceImpl implements ProfessorService {
         // search for professor by name
         return professorRepository.searchProfessorByName(name);
     }
+
+    @Override
+    public void deleteProfessor(Integer professorId) {
+        // delete professor from database
+        professorRepository.deleteProfessor(professorId);
+    }
 }

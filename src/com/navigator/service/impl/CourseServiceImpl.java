@@ -33,4 +33,10 @@ public class CourseServiceImpl implements CourseService {
         // search course by code
         return courseRepository.searchCourseByCode(code);
     }
+
+    @Override
+    public void deleteCourse(Integer courseId) {
+        // delete course from database
+        courseRepository.deleteCourse(courseId);
+    }
 }
