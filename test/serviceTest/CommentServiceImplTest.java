@@ -1,3 +1,5 @@
+package serviceTest;
+
 import com.rateneuprofessor.service.CommentService;
 import com.rateneuprofessor.service.impl.CommentServiceImpl;
 import org.junit.Test;

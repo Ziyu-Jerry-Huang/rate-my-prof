@@ -1,3 +1,5 @@
+package serviceTest;
+
 import com.rateneuprofessor.service.ProfessorService;
 import com.rateneuprofessor.service.impl.ProfessorServiceImpl;
 import org.junit.Test;

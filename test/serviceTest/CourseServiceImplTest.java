@@ -1,3 +1,5 @@
+package serviceTest;
+
 import com.rateneuprofessor.entity.Course;
 import com.rateneuprofessor.service.CourseService;
 import com.rateneuprofessor.service.impl.CourseServiceImpl;

@@ -1,3 +1,5 @@
+package utilsTest;
+
 import com.rateneuprofessor.entity.Comment;
 import com.rateneuprofessor.entity.Course;
 import com.rateneuprofessor.utils.GsonTools;

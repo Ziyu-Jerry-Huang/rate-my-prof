@@ -1,3 +1,5 @@
+package repositoryTest;
+
 import static org.junit.Assert.*;
 
 import com.rateneuprofessor.entity.Campus;
