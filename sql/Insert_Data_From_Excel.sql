@@ -1,12 +1,14 @@
 USE RateMyProfessor;
 
+set global local_infile=true;
+
 -- Load date into professors table
 LOAD DATA LOCAL INFILE '/Users/xinruiyi/Documents/GitHub/rate-my-prof/csv/Professor.csv'
 INTO TABLE professors
 FIELDS TERMINATED BY ',' ENCLOSED BY '"'
 LINES TERMINATED BY '\n'
 IGNORE 1 ROWS
-(name, campus_id);
+(professor_id,name, campus_id);
 
 -- Load data into campus table
 LOAD DATA LOCAL INFILE '/Users/xinruiyi/Documents/GitHub/rate-my-prof/csv/Comments_final_matched.csv'
