@@ -1,7 +1,6 @@
-import com.navigator.entity.Course;
-import com.navigator.repository.CourseRepository;
-import com.navigator.service.CourseService;
-import com.navigator.service.impl.CourseServiceImpl;
+import com.rateneuprofessor.entity.Course;
+import com.rateneuprofessor.service.CourseService;
+import com.rateneuprofessor.service.impl.CourseServiceImpl;
 import org.junit.Test;
 
 import java.util.ArrayList;

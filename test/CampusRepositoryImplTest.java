@@ -1,8 +1,8 @@
 import static org.junit.Assert.*;
 
-import com.navigator.entity.Campus;
-import com.navigator.repository.CampusRepository;
-import com.navigator.repository.impl.CampusRepositoryImpl;
+import com.rateneuprofessor.entity.Campus;
+import com.rateneuprofessor.repository.CampusRepository;
+import com.rateneuprofessor.repository.impl.CampusRepositoryImpl;
 import java.util.List;
 import org.junit.Test;
 

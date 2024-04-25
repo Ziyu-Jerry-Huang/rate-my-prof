@@ -1,5 +1,5 @@
-import com.navigator.service.CommentService;
-import com.navigator.service.impl.CommentServiceImpl;
+import com.rateneuprofessor.service.CommentService;
+import com.rateneuprofessor.service.impl.CommentServiceImpl;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

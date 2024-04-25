@@ -1,11 +1,9 @@
-import com.navigator.entity.Professor;
-import com.navigator.repository.ProfessorRepository;
-import com.navigator.repository.impl.ProfessorRepositoryImpl;
+import com.rateneuprofessor.entity.Professor;
+import com.rateneuprofessor.repository.ProfessorRepository;
+import com.rateneuprofessor.repository.impl.ProfessorRepositoryImpl;
 import org.junit.Test;
 
 import java.util.List;
-
-import static org.junit.Assert.*;
 
 public class ProfessorRepositoryImplTest {
     @Test

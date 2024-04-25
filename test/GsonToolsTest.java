@@ -1,8 +1,7 @@
-import com.navigator.entity.Comment;
-import com.navigator.entity.Course;
-import com.navigator.entity.Professor;
-import com.navigator.utils.GsonTools;
-import java.time.LocalDateTime;
+import com.rateneuprofessor.entity.Comment;
+import com.rateneuprofessor.entity.Course;
+import com.rateneuprofessor.utils.GsonTools;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;

@@ -1,7 +1,5 @@
-import com.navigator.repository.ProfessorRepository;
-import com.navigator.repository.impl.ProfessorRepositoryImpl;
-import com.navigator.service.ProfessorService;
-import com.navigator.service.impl.ProfessorServiceImpl;
+import com.rateneuprofessor.service.ProfessorService;
+import com.rateneuprofessor.service.impl.ProfessorServiceImpl;
 import org.junit.Test;
 
 public class ProfessorServiceImplTest {

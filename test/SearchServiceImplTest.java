@@ -1,12 +1,11 @@
-import com.navigator.entity.Course;
-import com.navigator.entity.Professor;
-import com.navigator.entity.Sort;
-import com.navigator.service.SearchService;
-import com.navigator.service.impl.SearchServiceImpl;
+import com.rateneuprofessor.entity.Course;
+import com.rateneuprofessor.entity.Professor;
+import com.rateneuprofessor.entity.Sort;
+import com.rateneuprofessor.service.SearchService;
+import com.rateneuprofessor.service.impl.SearchServiceImpl;
 import org.junit.Test;
 
 import java.util.List;
-import java.util.Set;
 
 public class SearchServiceImplTest {
     @Test
