@@ -34,7 +34,9 @@ make sure that the connection is established.
 
 ![](./docs/img/db-2.png)
 
-MySQL Advanced Configuration ...?
+MySQL Advanced Configuration set allowLoadLocalInfile to true.
+
+
 
 ### Step2: Initialize data from csv files
 
