@@ -35,7 +35,7 @@ make sure that the connection is established.
 ![](./docs/img/db-2.png)
 
 MySQL Advanced Configuration set allowLoadLocalInfile to true.
-
+![](./docs/img/db-4.jpg)
 
 
 ### Step2: Initialize data from csv files
@@ -43,10 +43,16 @@ MySQL Advanced Configuration set allowLoadLocalInfile to true.
 Create a database(schema) in your MySQL database.
 
 ![](./docs/img/db-3.png)
+Please change the directory of the csv files in the "/sql/Insert_Data_From_Excel.sql" file to your local directory.
+
+All the csv files are in the "/csv" folder.
 
 Run /sql/RateMyProfessor.sql to create tables in the database. 
 
-Run ...
+Run /sql/Insert_Data_From_Excel.sql to insert data from csv files to the tables.
+
+When computer prompts Unsafe query: 'Update' statement without 'where' updates all table rows at once, click : "Execute all"
+
 
 ### Step3: Configure database connection pool
 
