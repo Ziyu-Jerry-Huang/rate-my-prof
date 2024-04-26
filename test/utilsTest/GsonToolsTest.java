@@ -48,30 +48,31 @@ public class GsonToolsTest {
     String expected1 = "{\"status\":\"success\",\"message\":\"Success message\"}";
     assertEquals(expected1, GsonTools.success("success", "Success message", null));
 
-    String expected2 = "{\"status\":\"success\",\"message\":\"Success message\",\"data\":{\"courseId\":10,\"courseName\":\"Object Oriented Design\",\"courseCode\":\"CS5004\",\"professorId\":5}}";
+    String expected2 = "{\"status\":\"success\",\"message\":\"Success message\",\"data\":{\"courseId\":10,\"courseName\":\"Object Oriented Design\",\"courseCode\":\"CS5004\",\"professorId\":5,\"campusId\":1,\"rating\":5.0}}";
     assertEquals(expected2, GsonTools.success("success", "Success message", course1));
 
-    String expected3 = "{\"status\":\"success\",\"message\":\"Success message\",\"data\":[{\"courseId\":10,\"courseName\":\"Object Oriented Design\",\"courseCode\":\"CS5004\",\"professorId\":5},{\"courseId\":11,\"courseName\":\"Algorithm\",\"courseCode\":\"CS5800\",\"professorId\":12},{\"courseId\":12,\"courseName\":\"Web Development\",\"courseCode\":\"CS5610\",\"professorId\":17}]}";
+    String expected3 = "{\"status\":\"success\",\"message\":\"Success message\",\"data\":[{\"courseId\":10,\"courseName\":\"Object Oriented Design\",\"courseCode\":\"CS5004\",\"professorId\":5,\"campusId\":1,\"rating\":5.0},{\"courseId\":11,\"courseName\":\"Algorithm\",\"courseCode\":\"CS5800\",\"professorId\":12,\"campusId\":1,\"rating\":4.5},{\"courseId\":12,\"courseName\":\"Web Development\",\"courseCode\":\"CS5610\",\"professorId\":17,\"campusId\":1,\"rating\":4.0}]}";
     assertEquals(expected3, GsonTools.success("success", "Success message", listOfCourses));
 
-    String expected4 = "{\"status\":\"success\",\"message\":\"Success message\",\"data\":{\"Mark Miller\":{\"courseId\":10,\"courseName\":\"Object Oriented Design\",\"courseCode\":\"CS5004\",\"professorId\":5},\"John Alexis Guerra Gómez\":{\"courseId\":12,\"courseName\":\"Web Development\",\"courseCode\":\"CS5610\",\"professorId\":17},\"Lama Hamandi\":{\"courseId\":11,\"courseName\":\"Algorithm\",\"courseCode\":\"CS5800\",\"professorId\":12}}}";
+    String expected4 = "{\"status\":\"success\",\"message\":\"Success message\",\"data\":{\"Mark Miller\":{\"courseId\":10,\"courseName\":\"Object Oriented Design\",\"courseCode\":\"CS5004\",\"professorId\":5,\"campusId\":1,\"rating\":5.0},\"John Alexis Guerra Gómez\":{\"courseId\":12,\"courseName\":\"Web Development\",\"courseCode\":\"CS5610\",\"professorId\":17,\"campusId\":1,\"rating\":4.0},\"Lama Hamandi\":{\"courseId\":11,\"courseName\":\"Algorithm\",\"courseCode\":\"CS5800\",\"professorId\":12,\"campusId\":1,\"rating\":4.5}}}";
     assertEquals(expected4, GsonTools.success("success", "Success message", mapOfCourses));
 
     // NOTE: Custom objects can be used as key in gson ONLY IF the hashcode() method is override!
-
-    System.out.println(GsonTools.success("success", "Success message", comment1));
   }
 
+  @Test
   public void testSuccessMsgData() {
-    String expected1 = "{\"status\":\"success\",\"message\":\"Success message\",\"data\":{\"courseId\":10,\"courseName\":\"Object Oriented Design\",\"courseCode\":\"CS5004\",\"professorId\":5}}";
+    String expected1 = "{\"status\":\"success\",\"message\":\"Success message\",\"data\":{\"courseId\":10,\"courseName\":\"Object Oriented Design\",\"courseCode\":\"CS5004\",\"professorId\":5,\"campusId\":1,\"rating\":5.0}}";
     assertEquals(expected1, GsonTools.success("Success message", course1));
   }
 
+  @Test
   public void testSuccessMsg() {
     String expected1 = "{\"status\":\"success\",\"message\":\"Success message\"}";
     assertEquals(expected1, GsonTools.success("Success message"));
   }
 
+  @Test
   public void testError() {
     String expected1 = "{\"status\":\"error\",\"message\":\"There is an error!\"}";
     assertEquals(expected1, GsonTools.error("error", "There is an error!"));
